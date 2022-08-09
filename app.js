@@ -1,13 +1,40 @@
+
+const productsDiv = document.querySelector(".products");
 const url = 'https://course-api.com/javascript-store-products';
 
 const fetchFunction = async () => {
-    let e = await fetch (url);
-    let a = await e.json();
-    let list = a[2].id;
-    console.log(list);
-    
+    const response = await fetch (url);
+    const data = await response.json();
+    return data
 };
 
-const list = fetchFunction();
-console.log(list);
+const displaProducts = (list) => {
+    const productsAPI = list
+    .map((product) => {
+        const {id} = product;
+        const {name, price} = product.fields;
+        const {url : img} = product.fields.image[0];
+        const formatPrice = price / 100;
+        return `<article class="item">
+                    <div class="image">
+                        <img src="${img}" alt="${name}">
+                    </div>
+                    <p class="title">${name}</p>
+                    <p class="price">$${formatPrice}</p>
+                </article>`
+    }).join("");
+
+    productsDiv.innerHTML= productsAPI;
+};
+
+
+
+const start = async () => {
+    const data =await fetchFunction();
+    displaProducts(data);
+}
+
+start();
+
+
 
