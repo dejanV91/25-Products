@@ -15,13 +15,15 @@ const displaProducts = (list) => {
         const {name, price} = product.fields;
         const {url : img} = product.fields.image[0];
         const formatPrice = price / 100;
-        return `<article class="item">
-                    <div class="image">
-                        <img src="${img}" alt="${name}">
-                    </div>
-                    <p class="title">${name}</p>
-                    <p class="price">$${formatPrice}</p>
-                </article>`
+        return `<a class="single-product" href="product.html?id=${id}&name=john&age=25">
+                    <article class="item">
+                        <div class="image">
+                            <img src="${img}" alt="${name}">
+                        </div>
+                        <p class="title">${name}</p>
+                        <p class="price">$${formatPrice}</p>
+                    </article>
+                </a>`
     }).join("");
 
     productsDiv.innerHTML= productsAPI;
