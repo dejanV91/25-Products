@@ -10,6 +10,8 @@
     --priceClr:rgb(3, 3, 3);
     --titleClr:rgb(121, 120, 120);
     --radious: 7px;
+
+    --underlineDark:rgb(6, 61, 18);
 }
 
 html{
@@ -17,6 +19,28 @@ html{
     min-width: 100%;
     font-family: sans-serif;
     font-size: 16px;
+}
+
+@keyframes spin {
+    to{
+        transform: rotate(360deg);
+    }
+}
+
+.loading{
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.loading-index{
+    width: 6rem;
+    height: 6rem;
+    border: 5px solid rgb(190, 190, 190);
+    border-radius: 50%;
+    border-top-color: rgba(41, 41, 250, 0.712);
+    animation: spin 0.7s linear infinite;
 }
 
 body{
@@ -63,6 +87,7 @@ body{
     grid-template-columns: repeat(3, 1fr);
     gap: 50px 30px;
     max-width: 1150px;
+    position: relative;
 }
 
 .single-product{
@@ -108,5 +133,102 @@ img{
     }
     img{
         height: 200px;
+    }
+}
+
+/* styles for PRODUCT.html */
+
+#img-single{
+    height: 100%;
+    
+}
+
+.single{
+    margin-top: 30px;
+}
+
+.btn{
+    background-color: var(--underline);
+    border: none;
+    padding: 7px;
+    border-radius: var(--radious);
+    text-transform: capitalize;
+    color: var(--bgClr);
+    transition: all 0.3s linear;
+}
+
+#back-home{
+    padding: 12px 40px;
+    font-size: 1.1rem;
+    margin-bottom: 100px;
+}
+
+.btn:hover{
+    cursor: pointer;
+    background-color: var(--underlineDark);
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.product{
+    display: grid;    
+    grid-template-columns: 1fr 1fr;
+    column-gap: 35px;
+    max-width: 1170px;
+}
+
+.single-content{
+    text-align: start;
+}
+
+.single-title{
+    text-transform: capitalize;
+    font-size: 2rem;
+    margin: 15px 0 7px;
+    font-weight: 400;
+}
+
+.single-company{
+    font-size: 1.4rem;
+    margin-bottom: 7px;
+    text-transform: capitalize;
+    color: var(--titleClr);
+    font-weight: 400;
+}
+
+.single-price{
+    margin-bottom: 7px;
+}
+
+.color-section{
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: row;
+    column-gap: 7px;
+}
+
+.product-color{
+    background: crimson;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+}
+
+.single-text{
+    margin-bottom: 15px;
+    line-height: 1.7rem;
+}
+
+#add-to-cart{
+    padding: 7px 15px;
+}
+
+@media (max-width:750px) {
+    .product{
+        grid-template-columns: none;
+        grid-template-rows: 1fr 1fr;
+    }
+
+    .images-single{
+        height: 300px;
     }
 }
