@@ -2,6 +2,9 @@ const productsDiv = document.querySelector(".products");
 const url = 'https://course-api.com/javascript-store-products';
 
 const fetchFunction = async () => {
+    productsDiv.innerHTML= `<div class="loading">
+                                <div class="loading-index"></div> 
+                            </div>`;
     const response = await fetch (url);
     const data = await response.json();
     return data
