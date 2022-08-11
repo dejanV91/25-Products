@@ -222,6 +222,19 @@ img{
     padding: 7px 15px;
 }
 
+.load-single{
+    position: absolute;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.load-single h2{
+    text-transform: capitalize;
+    font-size: 1.5rem;
+}
+
 @media (max-width:750px) {
     .product{
         grid-template-columns: none;
